@@ -8,72 +8,51 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
-public class UserController {
+public class SellerController {
 
   private final SellerGraphQLService sellerGraphQLService;
-  private final AdvertGraphQLService advertGraphQLService;
 
-  public UserController(
-      SellerGraphQLService sellerGraphQLService, AdvertGraphQLService advertGraphQLService) {
+
+  public SellerController(
+      SellerGraphQLService sellerGraphQLService) {
     this.sellerGraphQLService = sellerGraphQLService;
-    this.advertGraphQLService = advertGraphQLService;
+
   }
 
-  @GetMapping("/sellers")
+  @GetMapping("/getAllSellers")
   public ResponseEntity<String> getAllSellers() {
     String response = sellerGraphQLService.fetchAllSellers();
     return ResponseEntity.ok(response);
   }
 
-  @PostMapping("/sellers")
+  @PostMapping("/createSeller")
   public ResponseEntity<String> createSeller(@RequestBody Map<String, Object> input) {
     String response = sellerGraphQLService.createSeller(input);
     return ResponseEntity.ok(response);
   }
 
-  @PutMapping("/sellers")
+  @PutMapping("/updateSeller")
   public ResponseEntity<String> updateSeller(@RequestBody Map<String, Object> input) {
     String response = sellerGraphQLService.updateSeller(input);
     return ResponseEntity.ok(response);
   }
 
-  @PostMapping("/sellers/search")
+  @PostMapping("/searchSellerByBusinessName")
   public ResponseEntity<String> searchSellerByBusinessName(@RequestBody Map<String, Object> input) {
     String response = sellerGraphQLService.searchSellerByBusinessName(input);
     return ResponseEntity.ok(response);
   }
 
-  @PostMapping("/sellers/by-id")
+  @PostMapping("/getSellerById")
   public ResponseEntity<String> getSellerById(@RequestBody Map<String, Object> input) {
     String response = sellerGraphQLService.getSellerById(input);
     return ResponseEntity.ok(response);
   }
 
-  @PostMapping("/seller/webhook")
+  @PostMapping("/getSellerWebhook")
   public ResponseEntity<String> getSellerWebhook(@RequestBody Map<String, Object> requestBody) {
     String id = (String) requestBody.get("id");
     String response = sellerGraphQLService.getSellerById(id);
     return ResponseEntity.ok(response);
   }
-
-
-  @PostMapping("/adverts/create")
-  public ResponseEntity<String> createAdvert(@RequestBody Map<String, Object> input) {
-    String response = advertGraphQLService.createAdvert(input);
-    return ResponseEntity.ok(response);
-  }
-
-  @PostMapping("/adverts/publish")
-  public ResponseEntity<String> updateAdvertPublishStatus(@RequestBody Map<String, Object> input) {
-    String response = advertGraphQLService.updateAdvertPublishStatus(input);
-    return ResponseEntity.ok(response);
-  }
-
-  @PostMapping("/advert/webhook")
-  public ResponseEntity<String> getAdvertWebhook(@RequestBody Map<String, Object> requestBody) {
-    String id = (String) requestBody.get("id");
-    String response = advertGraphQLService.getAdvertById(id);
-    return ResponseEntity.ok(response);
-  }
-
 }
