@@ -27,3 +27,6 @@
 2025-05-23 09:59:55 INFO  - Initializing Servlet 'dispatcherServlet'
 2025-05-23 09:59:55 INFO  - Completed initialization in 1 ms
 2025-05-23 11:18:17 WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=30m42s161ms244µs700ns).
+2025-05-23 12:42:21 INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-23 12:42:21 INFO  - HikariPool-1 - Shutdown initiated...
+2025-05-23 12:42:21 INFO  - HikariPool-1 - Shutdown completed.

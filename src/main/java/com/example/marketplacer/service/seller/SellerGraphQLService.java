@@ -4,6 +4,8 @@ import com.example.marketplacer.config.MarketplacerConfig;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.example.marketplacer.model.Seller;
+import com.example.marketplacer.repository.SellerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -15,6 +17,8 @@ public class SellerGraphQLService {
 
   private final WebClient webClient;
 
+  @Autowired
+  private SellerRepository sellerRepository;
 
   public SellerGraphQLService(MarketplacerConfig config) {
     this.webClient =
@@ -124,24 +128,27 @@ public class SellerGraphQLService {
 
   public String updateSeller(Map<String, Object> input) {
     String mutation =
-            "mutation SellerUpdate($input: SellerUpdateMutationInput!) {\n" +
-                    "  sellerUpdate(input: $input) {\n" +
-                    "    seller {\n" +
-                    "      id\n" +
-                    "      businessName\n" +
-                    "      metadata {\n" +
-                    "        key\n" +
-                    "        value\n" +
-                    "      }\n" +
-                    "    }\n" +
-                    "    errors {\n" +
-                    "      field\n" +
-                    "      messages\n" +
-                    "    }\n" +
-                    "    status\n" +
-                    "  }\n" +
-                    "}";
-
+            """
+	mutation SellerUpdate($input: SellerUpdateMutationInput!) {
+	sellerUpdate(input: $input) {
+		seller {
+			id	
+			businessName
+			metadata
+			{
+				key
+				value
+			}
+		}
+		errors {
+			field
+			messages
+		}
+		status
+	}
+}
+       """
+;
     Map<String, Object> variables = new HashMap<>();
     variables.put("input", input);
 
@@ -276,4 +283,46 @@ public class SellerGraphQLService {
             .block();
   }
 
+  //validation of users
+  public String getMarkerPlacerIdForEmailId(String emailId) {
+    return sellerRepository.findByEmail(emailId).map(Seller::getId).orElse("User not found");
+  }
+
+  public String getApprovedSellers(Map<String, Object> input) {
+    String query =
+            "query SellerSearchByBusinessName($pageSize: Int $endCursor: String $attributes: SellerSearchInput) {\n"
+                    + "  sellerSearch(attributes: $attributes) {\n"
+                    + "    sellers(first: $pageSize after: $endCursor) {\n"
+                    + "      edges {\n"
+                    + "        node {\n"
+                    + "          id\n"
+                    + "          phone\n"
+                    + "          users {\n"
+                    + "            nodes {\n"
+                    + "              firstName\n"
+                    + "              surname\n"
+                    + "              emailAddress\n"
+                    + "            }\n"
+                    + "          }\n"
+                    + "          metadata {\n"
+                    + "            key\n"
+                    + "            value\n"
+                    + "          }\n"
+                    + "        }\n"
+                    + "      }\n"
+                    + "      pageInfo {\n"
+                    + "        hasNextPage\n"
+                    + "        endCursor\n"
+                    + "      }\n"
+                    + "    }\n"
+                    + "  }\n"
+                    + "}";
+
+    Map<String, Object> requestBody = new HashMap<>();
+    requestBody.put("query", query);
+    requestBody.put("operationName", "SellerSearchByBusinessName");
+    requestBody.put("variables", input);
+
+    return webClient.post().bodyValue(requestBody).retrieve().bodyToMono(String.class).block();
+  }
 }
