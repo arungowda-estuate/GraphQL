@@ -128,6 +128,7 @@ public class SellerGraphQLService {
                     "  sellerUpdate(input: $input) {\n" +
                     "    seller {\n" +
                     "      id\n" +
+                    "      businessName\n" +
                     "      metadata {\n" +
                     "        key\n" +
                     "        value\n" +
@@ -164,14 +165,16 @@ public class SellerGraphQLService {
             + "      __typename\n"
             + "      phone\n"
             + "      id\n"
-            + "      legacyId\n"
-            + "      businessName\n"
-            + "      online\n"
-            + "      isRetailer\n"
-            + "      updatedAt\n"
-            + "      primaryUser {\n"
-            + "        firstName\n"
-            + "        surname\n"
+            + "      users {\n"
+            + "        nodes {\n"
+            + "          firstName\n"
+            + "          surname\n"
+            + "          emailAddress\n"
+            + "        }\n"
+            + "      }\n"
+            + "      metadata {\n"
+            + "        key\n"
+            + "        value\n"
             + "      }\n"
             + "    }\n"
             + "  }\n"
