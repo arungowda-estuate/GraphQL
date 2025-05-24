@@ -30,3 +30,276 @@
 2025-05-23 12:42:21 INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-05-23 12:42:21 INFO  - HikariPool-1 - Shutdown initiated...
 2025-05-23 12:42:21 INFO  - HikariPool-1 - Shutdown completed.
+2025-05-23 14:59:24 INFO  - Starting MarketplacerApplication using Java 22.0.2 with PID 22448 (C:\Users\abpatil\Documents\workspace-spring-tool-suite-4-4.27.0.RELEASE\GraphQL\target\classes started by ABPatil in C:\Users\abpatil\Documents\workspace-spring-tool-suite-4-4.27.0.RELEASE\GraphQL)
+2025-05-23 14:59:24 INFO  - No active profile set, falling back to 1 default profile: "default"
+2025-05-23 14:59:26 INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-23 14:59:26 INFO  - Finished Spring Data repository scanning in 236 ms. Found 1 JPA repository interface.
+2025-05-23 14:59:27 INFO  - Tomcat initialized with port 8080 (http)
+2025-05-23 14:59:27 INFO  - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-23 14:59:27 INFO  - Starting service [Tomcat]
+2025-05-23 14:59:27 INFO  - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-23 14:59:28 INFO  - Initializing Spring embedded WebApplicationContext
+2025-05-23 14:59:28 INFO  - Root WebApplicationContext: initialization completed in 3984 ms
+2025-05-23 14:59:28 INFO  - HikariPool-1 - Starting...
+2025-05-23 14:59:28 INFO  - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-05-23 14:59:28 INFO  - HikariPool-1 - Start completed.
+2025-05-23 14:59:28 INFO  - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-05-23 14:59:29 INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-23 14:59:29 INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-23 14:59:29 INFO  - HHH000026: Second-level cache disabled
+2025-05-23 14:59:30 INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-23 14:59:30 WARN  - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-23 14:59:31 INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-23 14:59:31 INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-23 14:59:32 WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-23 14:59:33 INFO  - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-23 14:59:33 INFO  - Tomcat started on port 8080 (http) with context path ''
+2025-05-23 14:59:33 INFO  - Started MarketplacerApplication in 10.202 seconds (process running for 11.168)
+2025-05-23 14:59:57 INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-23 14:59:57 INFO  - Initializing Servlet 'dispatcherServlet'
+2025-05-23 14:59:57 INFO  - Completed initialization in 4 ms
+2025-05-23 15:37:35 WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m33s232ms512µs800ns).
+2025-05-23 16:27:09 WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=36m32s916ms162µs700ns).
+2025-05-23 18:15:12 WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h2s440ms542µs900ns).
+2025-05-23 18:15:54 INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-23 18:15:54 INFO  - HikariPool-1 - Shutdown initiated...
+2025-05-23 18:15:54 INFO  - HikariPool-1 - Shutdown completed.
+2025-05-24 10:57:16 INFO  - Starting MarketplacerApplication using Java 22.0.2 with PID 18096 (C:\Users\abpatil\Documents\workspace-spring-tool-suite-4-4.27.0.RELEASE\GraphQL\target\classes started by ABPatil in C:\Users\abpatil\Documents\workspace-spring-tool-suite-4-4.27.0.RELEASE\GraphQL)
+2025-05-24 10:57:16 INFO  - No active profile set, falling back to 1 default profile: "default"
+2025-05-24 10:57:18 INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-24 10:57:19 INFO  - Finished Spring Data repository scanning in 281 ms. Found 1 JPA repository interface.
+2025-05-24 10:57:20 INFO  - Tomcat initialized with port 8080 (http)
+2025-05-24 10:57:20 INFO  - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-24 10:57:20 INFO  - Starting service [Tomcat]
+2025-05-24 10:57:20 INFO  - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-24 10:57:20 INFO  - Initializing Spring embedded WebApplicationContext
+2025-05-24 10:57:20 INFO  - Root WebApplicationContext: initialization completed in 3830 ms
+2025-05-24 10:57:20 INFO  - HikariPool-1 - Starting...
+2025-05-24 10:57:21 INFO  - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-05-24 10:57:21 INFO  - HikariPool-1 - Start completed.
+2025-05-24 10:57:21 INFO  - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-05-24 10:57:22 INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-24 10:57:22 INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-24 10:57:22 INFO  - HHH000026: Second-level cache disabled
+2025-05-24 10:57:23 INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-24 10:57:23 WARN  - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-24 10:57:24 INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-24 10:57:24 INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-24 10:57:25 WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-24 10:57:26 INFO  - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-24 10:57:26 INFO  - Tomcat started on port 8080 (http) with context path ''
+2025-05-24 10:57:26 INFO  - Started MarketplacerApplication in 11.02 seconds (process running for 12.175)
+2025-05-24 10:58:33 INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-24 10:58:33 INFO  - Initializing Servlet 'dispatcherServlet'
+2025-05-24 10:58:33 INFO  - Completed initialization in 0 ms
+2025-05-24 10:58:58 INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-24 10:58:58 INFO  - HikariPool-1 - Shutdown initiated...
+2025-05-24 10:58:58 INFO  - HikariPool-1 - Shutdown completed.
+2025-05-24 10:59:02 INFO  - Starting MarketplacerApplication using Java 22.0.2 with PID 18824 (C:\Users\abpatil\Documents\workspace-spring-tool-suite-4-4.27.0.RELEASE\GraphQL\target\classes started by ABPatil in C:\Users\abpatil\Documents\workspace-spring-tool-suite-4-4.27.0.RELEASE\GraphQL)
+2025-05-24 10:59:02 INFO  - No active profile set, falling back to 1 default profile: "default"
+2025-05-24 10:59:03 INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-24 10:59:04 INFO  - Finished Spring Data repository scanning in 276 ms. Found 1 JPA repository interface.
+2025-05-24 10:59:05 INFO  - Tomcat initialized with port 8080 (http)
+2025-05-24 10:59:05 INFO  - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-24 10:59:05 INFO  - Starting service [Tomcat]
+2025-05-24 10:59:05 INFO  - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-24 10:59:05 INFO  - Initializing Spring embedded WebApplicationContext
+2025-05-24 10:59:05 INFO  - Root WebApplicationContext: initialization completed in 3245 ms
+2025-05-24 10:59:05 INFO  - HikariPool-1 - Starting...
+2025-05-24 10:59:06 INFO  - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-05-24 10:59:06 INFO  - HikariPool-1 - Start completed.
+2025-05-24 10:59:06 INFO  - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-05-24 10:59:07 INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-24 10:59:07 INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-24 10:59:07 INFO  - HHH000026: Second-level cache disabled
+2025-05-24 10:59:07 INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-24 10:59:07 WARN  - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-24 10:59:09 INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-24 10:59:09 INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-24 10:59:10 WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-24 10:59:11 INFO  - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-24 10:59:11 INFO  - Tomcat started on port 8080 (http) with context path ''
+2025-05-24 10:59:11 INFO  - Started MarketplacerApplication in 10.051 seconds (process running for 11.149)
+2025-05-24 11:03:42 WARN  - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m39s656ms626µs500ns).
+2025-05-24 11:14:22 INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-24 11:14:22 INFO  - HikariPool-1 - Shutdown initiated...
+2025-05-24 11:14:22 INFO  - HikariPool-1 - Shutdown completed.
+2025-05-24 11:14:41 INFO  - Starting MarketplacerApplication using Java 22.0.2 with PID 18648 (C:\Users\abpatil\Documents\workspace-spring-tool-suite-4-4.27.0.RELEASE\GraphQL\target\classes started by ABPatil in C:\Users\abpatil\Documents\workspace-spring-tool-suite-4-4.27.0.RELEASE\GraphQL)
+2025-05-24 11:14:41 INFO  - No active profile set, falling back to 1 default profile: "default"
+2025-05-24 11:14:44 INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-24 11:14:45 INFO  - Finished Spring Data repository scanning in 371 ms. Found 1 JPA repository interface.
+2025-05-24 11:14:47 INFO  - Tomcat initialized with port 8080 (http)
+2025-05-24 11:14:47 INFO  - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-24 11:14:47 INFO  - Starting service [Tomcat]
+2025-05-24 11:14:47 INFO  - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-24 11:14:47 INFO  - Initializing Spring embedded WebApplicationContext
+2025-05-24 11:14:47 INFO  - Root WebApplicationContext: initialization completed in 5504 ms
+2025-05-24 11:14:47 INFO  - HikariPool-1 - Starting...
+2025-05-24 11:14:48 INFO  - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-05-24 11:14:48 INFO  - HikariPool-1 - Start completed.
+2025-05-24 11:14:48 INFO  - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-05-24 11:14:49 INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-24 11:14:49 INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-24 11:14:49 INFO  - HHH000026: Second-level cache disabled
+2025-05-24 11:14:50 INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-24 11:14:50 WARN  - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-24 11:14:52 INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-24 11:14:52 INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-24 11:14:54 WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-24 11:14:55 INFO  - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-24 11:14:55 INFO  - Tomcat started on port 8080 (http) with context path ''
+2025-05-24 11:14:55 INFO  - Started MarketplacerApplication in 15.734 seconds (process running for 17.183)
+2025-05-24 11:16:58 INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-24 11:16:58 INFO  - Initializing Servlet 'dispatcherServlet'
+2025-05-24 11:16:58 INFO  - Completed initialization in 2 ms
+2025-05-24 11:18:03 WARN  - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'id' for method parameter type String is not present]
+2025-05-24 11:18:15 WARN  - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'id' for method parameter type String is not present]
+2025-05-24 11:18:56 INFO  - Invalid chunk starting at byte [0] and ending at byte [1] with a value of [=] ignored
+ Note: further occurrences of Parameter errors will be logged at DEBUG level.
+2025-05-24 11:25:30 INFO  - User not found
+2025-05-24 11:25:49 INFO  - User not found
+2025-05-24 11:27:14 INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-24 11:27:14 INFO  - HikariPool-1 - Shutdown initiated...
+2025-05-24 11:27:14 INFO  - HikariPool-1 - Shutdown completed.
+2025-05-24 11:27:18 INFO  - Starting MarketplacerApplication using Java 22.0.2 with PID 19240 (C:\Users\abpatil\Documents\workspace-spring-tool-suite-4-4.27.0.RELEASE\GraphQL\target\classes started by ABPatil in C:\Users\abpatil\Documents\workspace-spring-tool-suite-4-4.27.0.RELEASE\GraphQL)
+2025-05-24 11:27:18 INFO  - No active profile set, falling back to 1 default profile: "default"
+2025-05-24 11:27:20 INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-24 11:27:20 INFO  - Finished Spring Data repository scanning in 313 ms. Found 1 JPA repository interface.
+2025-05-24 11:27:22 INFO  - Tomcat initialized with port 8080 (http)
+2025-05-24 11:27:22 INFO  - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-24 11:27:22 INFO  - Starting service [Tomcat]
+2025-05-24 11:27:22 INFO  - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-24 11:27:22 INFO  - Initializing Spring embedded WebApplicationContext
+2025-05-24 11:27:22 INFO  - Root WebApplicationContext: initialization completed in 4067 ms
+2025-05-24 11:27:22 INFO  - HikariPool-1 - Starting...
+2025-05-24 11:27:23 INFO  - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-05-24 11:27:23 INFO  - HikariPool-1 - Start completed.
+2025-05-24 11:27:23 INFO  - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-05-24 11:27:23 INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-24 11:27:23 INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-24 11:27:24 INFO  - HHH000026: Second-level cache disabled
+2025-05-24 11:27:24 INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-24 11:27:24 WARN  - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-24 11:27:25 INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-24 11:27:25 INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-24 11:27:27 WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-24 11:27:28 INFO  - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-24 11:27:28 INFO  - Tomcat started on port 8080 (http) with context path ''
+2025-05-24 11:27:28 INFO  - Started MarketplacerApplication in 11.562 seconds (process running for 12.771)
+2025-05-24 11:27:38 INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-24 11:27:38 INFO  - Initializing Servlet 'dispatcherServlet'
+2025-05-24 11:27:38 INFO  - Completed initialization in 3 ms
+2025-05-24 11:27:39 INFO  - U2VsbGVyLTM3
+2025-05-24 11:39:12 WARN  - Resolved [org.springframework.web.context.request.async.AsyncRequestNotUsableException: ServletOutputStream failed to flush: java.nio.channels.ClosedChannelException]
+2025-05-24 11:39:14 INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-24 11:39:14 INFO  - HikariPool-1 - Shutdown initiated...
+2025-05-24 11:39:15 INFO  - HikariPool-1 - Shutdown completed.
+2025-05-24 11:39:19 INFO  - Starting MarketplacerApplication using Java 22.0.2 with PID 8992 (C:\Users\abpatil\Documents\workspace-spring-tool-suite-4-4.27.0.RELEASE\GraphQL\target\classes started by ABPatil in C:\Users\abpatil\Documents\workspace-spring-tool-suite-4-4.27.0.RELEASE\GraphQL)
+2025-05-24 11:39:19 INFO  - No active profile set, falling back to 1 default profile: "default"
+2025-05-24 11:39:21 INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-24 11:39:22 INFO  - Finished Spring Data repository scanning in 352 ms. Found 1 JPA repository interface.
+2025-05-24 11:39:24 INFO  - Tomcat initialized with port 8080 (http)
+2025-05-24 11:39:24 INFO  - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-24 11:39:24 INFO  - Starting service [Tomcat]
+2025-05-24 11:39:24 INFO  - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-24 11:39:24 INFO  - Initializing Spring embedded WebApplicationContext
+2025-05-24 11:39:24 INFO  - Root WebApplicationContext: initialization completed in 4838 ms
+2025-05-24 11:39:24 INFO  - HikariPool-1 - Starting...
+2025-05-24 11:39:25 INFO  - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-05-24 11:39:25 INFO  - HikariPool-1 - Start completed.
+2025-05-24 11:39:25 INFO  - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-05-24 11:39:25 INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-24 11:39:26 INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-24 11:39:26 INFO  - HHH000026: Second-level cache disabled
+2025-05-24 11:39:27 INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-24 11:39:27 WARN  - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-24 11:39:28 INFO  - Starting MarketplacerApplication using Java 22.0.2 with PID 17324 (C:\Users\abpatil\Documents\workspace-spring-tool-suite-4-4.27.0.RELEASE\GraphQL\target\classes started by ABPatil in C:\Users\abpatil\Documents\workspace-spring-tool-suite-4-4.27.0.RELEASE\GraphQL)
+2025-05-24 11:39:28 INFO  - No active profile set, falling back to 1 default profile: "default"
+2025-05-24 11:39:29 INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-24 11:39:29 INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-24 11:39:31 INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-24 11:39:32 WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-24 11:39:32 INFO  - Finished Spring Data repository scanning in 535 ms. Found 1 JPA repository interface.
+2025-05-24 11:39:33 INFO  - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-24 11:39:33 INFO  - Tomcat started on port 8080 (http) with context path ''
+2025-05-24 11:39:33 INFO  - Started MarketplacerApplication in 15.864 seconds (process running for 17.298)
+2025-05-24 11:39:35 INFO  - Tomcat initialized with port 8080 (http)
+2025-05-24 11:39:35 INFO  - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-24 11:39:35 INFO  - Starting service [Tomcat]
+2025-05-24 11:39:35 INFO  - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-24 11:39:35 INFO  - Initializing Spring embedded WebApplicationContext
+2025-05-24 11:39:35 INFO  - Root WebApplicationContext: initialization completed in 6256 ms
+2025-05-24 11:39:35 INFO  - HikariPool-1 - Starting...
+2025-05-24 11:39:36 INFO  - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-05-24 11:39:36 INFO  - HikariPool-1 - Start completed.
+2025-05-24 11:39:36 INFO  - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-05-24 11:39:36 INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-24 11:39:36 INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-24 11:39:37 INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-24 11:39:37 INFO  - Initializing Servlet 'dispatcherServlet'
+2025-05-24 11:39:37 INFO  - Completed initialization in 11 ms
+2025-05-24 11:39:37 INFO  - HHH000026: Second-level cache disabled
+2025-05-24 11:39:37 INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-24 11:39:37 WARN  - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-24 11:39:39 INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-24 11:39:39 INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-24 11:39:41 WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-24 11:39:42 INFO  - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-24 11:39:42 WARN  - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-05-24 11:39:42 INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-24 11:39:42 INFO  - HikariPool-1 - Shutdown initiated...
+2025-05-24 11:39:42 INFO  - HikariPool-1 - Shutdown completed.
+2025-05-24 11:39:42 INFO  - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-05-24 11:39:42 ERROR - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2025-05-24 11:39:54 INFO  - Invalid chunk starting at byte [0] and ending at byte [1] with a value of [=] ignored
+ Note: further occurrences of Parameter errors will be logged at DEBUG level.
+2025-05-24 11:40:29 INFO  - U2VsbGVyLTM5
+2025-05-24 12:53:14 INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-24 12:53:14 INFO  - HikariPool-1 - Shutdown initiated...
+2025-05-24 12:53:14 INFO  - HikariPool-1 - Shutdown completed.
+2025-05-24 12:58:24 INFO  - Starting MarketplacerApplication using Java 22.0.2 with PID 16512 (C:\Users\abpatil\Documents\workspace-spring-tool-suite-4-4.27.0.RELEASE\GraphQL\target\classes started by ABPatil in C:\Users\abpatil\Documents\workspace-spring-tool-suite-4-4.27.0.RELEASE\GraphQL)
+2025-05-24 12:58:24 INFO  - No active profile set, falling back to 1 default profile: "default"
+2025-05-24 12:58:26 INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-24 12:58:26 INFO  - Finished Spring Data repository scanning in 273 ms. Found 1 JPA repository interface.
+2025-05-24 12:58:28 INFO  - Tomcat initialized with port 8080 (http)
+2025-05-24 12:58:28 INFO  - Initializing ProtocolHandler ["http-nio-8080"]
+2025-05-24 12:58:28 INFO  - Starting service [Tomcat]
+2025-05-24 12:58:28 INFO  - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-05-24 12:58:28 INFO  - Initializing Spring embedded WebApplicationContext
+2025-05-24 12:58:28 INFO  - Root WebApplicationContext: initialization completed in 3591 ms
+2025-05-24 12:58:28 INFO  - HikariPool-1 - Starting...
+2025-05-24 12:58:29 INFO  - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-05-24 12:58:29 INFO  - HikariPool-1 - Start completed.
+2025-05-24 12:58:29 INFO  - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-05-24 12:58:29 INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-24 12:58:30 INFO  - HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-24 12:58:30 INFO  - HHH000026: Second-level cache disabled
+2025-05-24 12:58:30 INFO  - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-24 12:58:30 WARN  - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-24 12:58:32 INFO  - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-24 12:58:32 INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-24 12:58:33 WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-24 12:58:34 INFO  - Starting ProtocolHandler ["http-nio-8080"]
+2025-05-24 12:58:34 INFO  - Tomcat started on port 8080 (http) with context path ''
+2025-05-24 12:58:34 INFO  - Started MarketplacerApplication in 10.818 seconds (process running for 11.851)
+2025-05-24 12:58:40 INFO  - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-24 12:58:40 INFO  - Initializing Servlet 'dispatcherServlet'
+2025-05-24 12:58:40 INFO  - Completed initialization in 4 ms
+2025-05-24 13:16:44 INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-24 13:16:44 INFO  - HikariPool-1 - Shutdown initiated...
+2025-05-24 13:16:44 INFO  - HikariPool-1 - Shutdown completed.

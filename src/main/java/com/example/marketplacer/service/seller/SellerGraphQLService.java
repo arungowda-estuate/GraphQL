@@ -2,10 +2,13 @@ package com.example.marketplacer.service.seller;
 
 import com.example.marketplacer.config.MarketplacerConfig;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.example.marketplacer.model.Seller;
 import com.example.marketplacer.repository.SellerRepository;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -96,33 +99,56 @@ public class SellerGraphQLService {
   }
 
   public String createSeller(Map<String, Object> input) {
-    String mutation =
-        "mutation SellerCreate($input: SellerCreateMutationInput!) {\n"
-            + "  sellerCreate(input: $input) {\n"
-            + "    seller {\n"
-            + "      id\n"
-            + "      metadata {\n"
-            + "        key\n"
-            + "        value\n"
-            + "      }\n"
-            + "    }\n"
-            + "    errors {\n"
-            + "      field\n"
-            + "      messages\n"
-            + "    }\n"
-            + "    status\n"
-            + "  }\n"
-            + "}";
+    String createQuery =
+            """
+        mutation SellerCreate($input: SellerCreateMutationInput!) {
+          sellerCreate(input: $input) {
+            seller {
+              id
+              primaryUser {
+                emailAddress
+              }
+            }
+            errors {
+              field
+              messages
+            }
+            status
+          }
+        }
+        """;
 
     Map<String, Object> variables = new HashMap<>();
     variables.put("input", input);
 
     Map<String, Object> requestBody = new HashMap<>();
-    requestBody.put("query", mutation);
+    requestBody.put("query", createQuery);
     requestBody.put("operationName", "SellerCreate");
     requestBody.put("variables", variables);
 
-    return webClient.post().bodyValue(requestBody).retrieve().bodyToMono(String.class).block();
+    String response =
+            webClient.post().bodyValue(requestBody).retrieve().bodyToMono(String.class).block();
+
+    try {
+      ObjectMapper mapper = new ObjectMapper();
+      JsonNode root = mapper.readTree(response);
+      JsonNode sellerNode = root.path("data").path("sellerCreate").path("seller");
+
+      if (!sellerNode.isMissingNode()) {
+        String id = sellerNode.get("id").asText();
+        String email = sellerNode.path("primaryUser").path("emailAddress").asText();
+
+        Seller info = new Seller();
+        info.setId(id);
+        info.setEmail(email);
+
+        sellerRepository.save(info);
+      }
+    } catch (Exception e) {
+      e.printStackTrace(); // or use a logger
+    }
+
+    return response;
   }
 
 
@@ -160,75 +186,104 @@ public class SellerGraphQLService {
     return webClient.post().bodyValue(requestBody).retrieve().bodyToMono(String.class).block();
   }
 
-  public String getSellerById(Map<String, Object> input) {
-    String query = "query getSellersById($pageSize: Int, $endCursor: String, $retailerIds: [ID!]) {\n"
-            + "  sellersWhere(first: $pageSize, after: $endCursor, retailerIds: $retailerIds) {\n"
-            + "    totalCount\n"
-            + "    pageInfo {\n"
-            + "      hasNextPage\n"
-            + "      endCursor\n"
-            + "    }\n"
-            + "    nodes {\n"
-            + "      __typename\n"
-            + "      phone\n"
-            + "      id\n"
-            + "      users {\n"
-            + "        nodes {\n"
-            + "          firstName\n"
-            + "          surname\n"
-            + "          emailAddress\n"
-            + "        }\n"
-            + "      }\n"
-            + "      metadata {\n"
-            + "        key\n"
-            + "        value\n"
-            + "      }\n"
-            + "    }\n"
-            + "  }\n"
-            + "}";
-
-    Integer pageSize = (Integer) input.get("pageSize");
-    String endCursor = (String) input.get("endCursor");
-    @SuppressWarnings("unchecked")
-    java.util.List<String> retailerIds = (java.util.List<String>) input.get("retailerIds");
+  public String getSellerById(String id) {
+    String query =
+            """
+            query getSellersById($pageSize: Int, $endCursor: String, $retailerIds: [ID!]) {
+              sellersWhere(first: $pageSize, after: $endCursor, retailerIds: $retailerIds) {
+                totalCount
+                pageInfo {
+                  hasNextPage
+                  endCursor
+                }
+                nodes {
+                  __typename
+                  phone
+                  id
+                  address {
+                    address
+                    country {
+                      name
+                    }
+                    state {
+                      name
+                    }
+                    city
+                    postcode
+                  }
+                  users {
+                    nodes {
+                      firstName
+                      surname
+                      emailAddress
+                    }
+                  }
+                  metadata {
+                    key
+                    value
+                  }
+                }
+              }
+            }
+            """;
 
     Map<String, Object> variables = new HashMap<>();
-    variables.put("pageSize", pageSize);
-    variables.put("endCursor", endCursor);
-    variables.put("retailerIds", retailerIds);
+    variables.put("pageSize", 10); // Since only one ID is passed
+    variables.put("endCursor", null);
+    variables.put("retailerIds", List.of(id));
 
     Map<String, Object> requestBody = new HashMap<>();
     requestBody.put("query", query);
     requestBody.put("operationName", "getSellersById");
     requestBody.put("variables", variables);
 
-    return webClient.post()
-            .bodyValue(requestBody)
-            .retrieve()
-            .bodyToMono(String.class)
-            .block();
+    return webClient.post().bodyValue(requestBody).retrieve().bodyToMono(String.class).block();
   }
 
 
 
 
   public String searchSellerByBusinessName(Map<String, Object> input) {
-    String query = "query SellerSearchByBusinessName($pageSize: Int, $endCursor: String, $attributes: SellerSearchInput) {\n"
-            + "  sellerSearch(attributes: $attributes) {\n"
-            + "    sellers(first: $pageSize, after: $endCursor) {\n"
-            + "      edges {\n"
-            + "        node {\n"
-            + "          id\n"
-            + "          businessName\n"
-            + "        }\n"
-            + "      }\n"
-            + "      pageInfo {\n"
-            + "        hasNextPage\n"
-            + "        endCursor\n"
-            + "      }\n"
-            + "    }\n"
-            + "  }\n"
-            + "}";
+    String query =
+            """
+                    query getSellersById($pageSize: Int, $endCursor: String, $retailerIds: [ID!]) {
+                      sellersWhere(first: $pageSize, after: $endCursor, retailerIds: $retailerIds) {
+                        totalCount
+                        pageInfo {
+                          hasNextPage
+                          endCursor
+                        }
+                        nodes {
+                          __typename
+                          phone
+                          id
+                          address {
+                            address
+                            country {
+                              name
+                            }
+                            state {
+                              name
+                            }
+                            city
+                            postcode
+                          }
+                          users {
+                            nodes {
+                              firstName
+                              surname
+                              emailAddress
+                            }
+                          }
+                          metadata {
+                            key
+                            value
+                          }
+                        }
+                      }
+                    }
+                    
+            """;
 
     // Extract fields from input map
     Integer pageSize = (Integer) input.get("pageSize");
@@ -253,35 +308,35 @@ public class SellerGraphQLService {
             .block();
   }
 
-  public String getSellerById(String id) {
-    String query =
-            "query SellerWebhook($id: ID!) {\n" +
-                    "  node(id: $id) {\n" +
-                    "    ... on Seller {\n" +
-                    "      __typename\n" +
-                    "      id\n" +
-                    "      businessName\n" +
-                    "      phone\n" +
-                    "      metadata { key value }\n" +
-                    "      externalIds { key value }\n" +
-                    "    }\n" +
-                    "  }\n" +
-                    "}";
-
-    Map<String, Object> variables = new HashMap<>();
-    variables.put("id", id);
-
-    Map<String, Object> requestBody = new HashMap<>();
-    requestBody.put("query", query);
-    requestBody.put("operationName", "SellerWebhook");
-    requestBody.put("variables", variables);
-
-    return webClient.post()
-            .bodyValue(requestBody)
-            .retrieve()
-            .bodyToMono(String.class)
-            .block();
-  }
+//  public String getSellerById(String id) {
+//    String query =
+//            "query SellerWebhook($id: ID!) {\n" +
+//                    "  node(id: $id) {\n" +
+//                    "    ... on Seller {\n" +
+//                    "      __typename\n" +
+//                    "      id\n" +
+//                    "      businessName\n" +
+//                    "      phone\n" +
+//                    "      metadata { key value }\n" +
+//                    "      externalIds { key value }\n" +
+//                    "    }\n" +
+//                    "  }\n" +
+//                    "}";
+//
+//    Map<String, Object> variables = new HashMap<>();
+//    variables.put("id", id);
+//
+//    Map<String, Object> requestBody = new HashMap<>();
+//    requestBody.put("query", query);
+//    requestBody.put("operationName", "SellerWebhook");
+//    requestBody.put("variables", variables);
+//
+//    return webClient.post()
+//            .bodyValue(requestBody)
+//            .retrieve()
+//            .bodyToMono(String.class)
+//            .block();
+//  }
 
   //validation of users
   public String getMarkerPlacerIdForEmailId(String emailId) {
@@ -290,39 +345,55 @@ public class SellerGraphQLService {
 
   public String getApprovedSellers(Map<String, Object> input) {
     String query =
-            "query SellerSearchByBusinessName($pageSize: Int $endCursor: String $attributes: SellerSearchInput) {\n"
-                    + "  sellerSearch(attributes: $attributes) {\n"
-                    + "    sellers(first: $pageSize after: $endCursor) {\n"
-                    + "      edges {\n"
-                    + "        node {\n"
-                    + "          id\n"
-                    + "          phone\n"
-                    + "          users {\n"
-                    + "            nodes {\n"
-                    + "              firstName\n"
-                    + "              surname\n"
-                    + "              emailAddress\n"
-                    + "            }\n"
-                    + "          }\n"
-                    + "          metadata {\n"
-                    + "            key\n"
-                    + "            value\n"
-                    + "          }\n"
-                    + "        }\n"
-                    + "      }\n"
-                    + "      pageInfo {\n"
-                    + "        hasNextPage\n"
-                    + "        endCursor\n"
-                    + "      }\n"
-                    + "    }\n"
-                    + "  }\n"
-                    + "}";
+            "query SellerSearchByBusinessName($pageSize: Int, $endCursor: String, $attributes: SellerSearchInput) {\n" +
+                    "  sellerSearch(attributes: $attributes) {\n" +
+                    "    sellers(first: $pageSize, after: $endCursor) {\n" +
+                    "      edges {\n" +
+                    "        node {\n" +
+                    "          id\n" +
+                    "          phone\n" +
+                    "          users {\n" +
+                    "            nodes {\n" +
+                    "              firstName\n" +
+                    "              surname\n" +
+                    "              emailAddress\n" +
+                    "            }\n" +
+                    "          }\n" +
+                    "          metadata {\n" +
+                    "            key\n" +
+                    "            value\n" +
+                    "          }\n" +
+                    "          address {\n" +
+                    "            address\n" +
+                    "            country {\n" +
+                    "              name\n" +
+                    "            }\n" +
+                    "            state {\n" +
+                    "              name\n" +
+                    "            }\n" +
+                    "            city\n" +
+                    "            postcode\n" +
+                    "          }\n" +
+                    "        }\n" +
+                    "      }\n" +
+                    "      pageInfo {\n" +
+                    "        hasNextPage\n" +
+                    "        endCursor\n" +
+                    "      }\n" +
+                    "    }\n" +
+                    "  }\n" +
+                    "}";
 
     Map<String, Object> requestBody = new HashMap<>();
     requestBody.put("query", query);
     requestBody.put("operationName", "SellerSearchByBusinessName");
     requestBody.put("variables", input);
 
-    return webClient.post().bodyValue(requestBody).retrieve().bodyToMono(String.class).block();
+    return webClient.post()
+            .bodyValue(requestBody)
+            .retrieve()
+            .bodyToMono(String.class)
+            .block();
   }
+
 }

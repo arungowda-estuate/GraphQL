@@ -46,9 +46,9 @@ public class SellerController {
     return ResponseEntity.ok(response);
   }
 
-  @PostMapping("/getSellerById")
-  public ResponseEntity<String> getSellerById(@RequestBody Map<String, Object> input) {
-    String response = sellerGraphQLService.getSellerById(input);
+  @GetMapping("/getSellerById")
+  public ResponseEntity<String> getSellerByRetailerId(@RequestParam String id) {
+    String response = sellerGraphQLService.getSellerById(id);
     return ResponseEntity.ok(response);
   }
 
@@ -66,8 +66,14 @@ public class SellerController {
     return ResponseEntity.ok(MarketPlacerID);
   }
 
-  @PostMapping("/sellers/approved")
+  @PostMapping("/sellersApproved")
   public ResponseEntity<String> getApprovedSellers(@RequestBody Map<String, Object> request) {
+    String response = sellerGraphQLService.getApprovedSellers(request);
+    return ResponseEntity.ok(response);
+  }
+
+  @PostMapping("/sellersNotApproved")
+  public ResponseEntity<String> getNonApprovedSellers(@RequestBody Map<String, Object> request) {
     String response = sellerGraphQLService.getApprovedSellers(request);
     return ResponseEntity.ok(response);
   }
